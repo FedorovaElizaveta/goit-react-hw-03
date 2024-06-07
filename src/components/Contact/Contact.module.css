@@ -1,0 +1,35 @@
+.contactCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+
+.contactCardInfo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.contactCardInfo p {
+  margin: 0;
+}
+
+.contactCardBtn {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 30px;
+  transition: background-color 250ms ease-in-out;
+}
+
+.t {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
