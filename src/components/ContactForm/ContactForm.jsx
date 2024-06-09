@@ -8,6 +8,10 @@ const validationSchema = Yup.object().shape({
     .min(3, "Too short!")
     .max(50, "Too long!")
     .required("Required"),
+  // number: Yup.string()
+  //   .min(3, "Too short!")
+  //   .max(50, "Too long!")
+  //   .required("Required"),
   number: Yup.string()
     .matches(
       /^\d{3}-\d{2}-\d{2}$/,
