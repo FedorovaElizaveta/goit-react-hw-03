@@ -6,9 +6,16 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import data from "./data.json";
 
 function App() {
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState(() => {
+    const currentContacts = localStorage.getItem("contacts");
+    return currentContacts ? JSON.parse(currentContacts) : data;
+  });
+  const [filteredContacts, setFilteredContacts] = useState([]);
   const [filter, setFilter] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState(data);
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   const handleChange = (event) => {
     const inputValue = event.target.value.toLowerCase().trim();
@@ -22,12 +29,21 @@ function App() {
     setFilteredContacts(filtredContacts);
   }, [filter, contacts]);
 
+  const handleSubmit = (newContact) => {
+    setContacts((contacts) => [...contacts, newContact]);
+  };
+
+  const deleteContact = (id) => {
+    const updatedContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(updatedContacts);
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm submit={handleSubmit} />
       <SearchBox handleChange={handleChange} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
 }

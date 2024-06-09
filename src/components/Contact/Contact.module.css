@@ -1,4 +1,4 @@
-.contactCardContainer {
+.contactCardItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,6 +6,12 @@
   padding: 15px;
   border: 1px solid #000;
   border-radius: 15px;
+}
+
+.contactCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .contactCardInfo {
@@ -24,8 +30,7 @@
   transition: background-color 250ms ease-in-out;
 }
 
-.t {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.contactCardBtn:hover,
+.contactCardBtn:focus {
+  background-color: #404bbf;
 }
