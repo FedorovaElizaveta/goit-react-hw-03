@@ -17,8 +17,7 @@ function App() {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-  const handleChange = (event) => {
-    const inputValue = event.target.value.toLowerCase().trim();
+  const findContact = (inputValue) => {
     setFilter(inputValue);
   };
 
@@ -42,7 +41,7 @@ function App() {
     <div>
       <h1>Phonebook</h1>
       <ContactForm submit={handleSubmit} />
-      <SearchBox handleChange={handleChange} />
+      <SearchBox findContact={findContact} />
       <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );

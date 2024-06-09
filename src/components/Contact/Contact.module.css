@@ -20,6 +20,12 @@
   align-items: center;
 }
 
+.contactCardInfo p {
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .contactCardBtn {
   width: 100px;
   height: 40px;
